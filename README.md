@@ -45,7 +45,7 @@ Para ejecutar la aplicación en local:
    ```
 2. Acceder a la carpeta del proyecto:
     ```bash
-    cd nombre-del-proyecto
+    cd .\pruebaTecnicaAngular\frontend\
     ```
 3. Instalar dependencias:
     ```bash
