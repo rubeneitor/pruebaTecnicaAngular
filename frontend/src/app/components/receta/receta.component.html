@@ -1,0 +1,57 @@
+<div class="app-banner">
+  <div class="app-banner-bar"></div>
+  <img class="corner-logo" src="https://cdn-icons-png.flaticon.com/512/2705/2705102.png" alt="Logo Nutricional" />
+  <div class="app-banner-content">
+    <h1>Generador de Recetas Nutricionales 🥗</h1>
+    <p>Introduce tus objetivos calóricos y macronutrientes para obtener una receta ajustada</p>
+  </div>
+</div>
+
+<p-panel header="Plan Nutricional">
+  <div class="form-grid p-fluid p-formgrid p-grid">
+    <div class="p-field p-col-12 p-md-6 mb-2">
+      <label for="kcal">Calorías</label>
+      <input id="kcal" pInputText type="number" [(ngModel)]="plan().kcal" />
+    </div>
+    <div class="p-field p-col-12 p-md-6 mb-2">
+      <label for="proteinas">Proteínas</label>
+      <input id="proteinas" pInputText type="number" [(ngModel)]="plan().proteinas" />
+    </div>
+    <div class="p-field p-col-12 p-md-6 mb-2">
+      <label for="carbohidratos">Carbohidratos</label>
+      <input id="carbohidratos" pInputText type="number" [(ngModel)]="plan().carbohidratos" />
+    </div>
+    <div class="p-field p-col-12 p-md-6 mb-2">
+      <label for="grasas">Grasas</label>
+      <input id="grasas" pInputText type="number" [(ngModel)]="plan().grasas" />
+    </div>
+  </div>
+  <div class="p-mt-3">
+    <button pButton label="Generar receta" icon="pi pi-check" (click)="generarReceta()" class="p-button-success"></button>
+  </div>
+</p-panel>
+
+<p-panel *ngIf="receta()" header="Resultado de la receta" class="p-mt-4">
+  <p-table [value]="receta()!.ingredientes" class="p-datatable-sm">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Ingrediente</th>
+        <th>Gramos</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-i>
+      <tr>
+        <td>{{ i.ingrediente.nombre }}</td>
+        <td>{{ i.gramos }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <div class="p-mt-3 p-text-center p-text-secondary">
+    <p><strong>Total kcal:</strong> {{ receta()?.totalKcal | number:'1.0-0' }} ({{ diferencia(receta()?.totalKcal || 0, plan().kcal) }})</p>
+    <p><strong>Proteínas:</strong> {{ receta()?.totalProteinas | number:'1.0-0' }} ({{ diferencia(receta()?.totalProteinas || 0, plan().proteinas) }})</p>
+    <p><strong>Carbohidratos:</strong> {{ receta()?.totalCarbohidratos | number:'1.0-0' }} ({{ diferencia(receta()?.totalCarbohidratos || 0, plan().carbohidratos) }})</p>
+    <p><strong>Grasas:</strong> {{ receta()?.totalGrasas | number:'1.0-0' }} ({{ diferencia(receta()?.totalGrasas || 0, plan().grasas) }})</p>
+  </div>
+</p-panel>
+

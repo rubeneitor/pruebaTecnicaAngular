@@ -1,0 +1,47 @@
+.p-field {
+    margin-bottom: 1rem;
+}
+
+label {
+    margin-right: 1rem;
+}
+
+.app-banner {
+  position: relative;
+  background: #ffffff;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  padding: 2rem 1rem 1rem 1rem;
+  text-align: center;
+}
+
+.app-banner-bar {
+  height: 8px;
+  background: linear-gradient(to right, #34c38f, #00bcd4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.corner-logo {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+}
+
+.app-banner-content h1 {
+  margin: 0.5rem 0;
+  font-size: 2rem;
+  color: #333;
+}
+
+.app-banner-content p {
+  margin: 0;
+  font-size: 1rem;
+  color: #666;
+}
